@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Voice Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body class="text-white font-light">
+
+    <!-- Navbar -->
+    <header class="w-full py-4 px-6 flex justify-between items-center bg-black/30 backdrop-blur-md fixed top-0 z-50">
+        <div class="text-2xl font-semibold text-white"><a href="/">AI Voice</a></div>
+        <nav class="space-x-4 text-sm">
+            <a href="/plans" class="hover:text-cyan-300 transition">Ver Planos</a>
+            <a href="/login" class="hover:text-cyan-300 transition">Login</a>
+            <a href="/register" class="bg-cyan-500 px-4 py-2 rounded-lg hover:bg-cyan-600 transition">Registrar</a>
+        </nav>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="flex items-center justify-center min-h-screen pt-24 px-6">
+        <div class="max-w-2xl w-full text-center p-8 rounded-xl shadow-lg">
+            <h1 class="text-4xl md:text-5xl font-light mb-6 text-white">
+                Transforme Texto em Áudio com IA
+            </h1>
+            <p class="text-gray-300 text-lg mb-8 font-light">
+                Tecnologia avançada de geração de voz para criar áudios realistas a partir de qualquer texto.
+            </p>
+
+            <form action="/gerar-audio" method="post">
+                <textarea name="texto" rows="1" placeholder="Digite seu texto aqui..."
+                    class="textarea-minimal w-full resize-none overflow-hidden p-4 rounded-lg h-14 bg-transparent text-white border border-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all duration-300 ease-in-out"
+                    required></textarea>
+                <button type="submit"
+                    class="mt-6 w-full py-3 bg-white text-black hover:bg-gray-200 rounded-lg font-semibold transition shadow-md">
+                    Gerar Áudio
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <script>
+        function generateStars() {
+            const numberOfStars = 200;
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                star.style.top = `${Math.random() * 100}vh`;
+                star.style.left = `${Math.random() * 100}vw`;
+                document.body.appendChild(star);
+            }
+        }
+
+        window.addEventListener('load', generateStars);
+    </script>
+</body>
+
+</html>

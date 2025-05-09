@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="form-container">
+  <h2 class="title">Registrar</h2>
+  <form method="POST" action="/register">
+    <input type="text" name="name" placeholder="Nome completo" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="password" name="password" placeholder="Senha" required>
+    <button type="submit">Criar Conta</button>
+    <p class="link">Já tem uma conta? <a href="/login">Entrar</a></p>
+  </form>
+</div>
+{% endblock %}

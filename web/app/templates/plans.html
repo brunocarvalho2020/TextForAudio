@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="plans-container">
+  <h2 class="plans-title">Escolha seu plano</h2>
+  <div class="plans-grid">
+    <div class="plan-card">
+      <h3>Gratuito</h3>
+      <p>Até 3 conversões por dia</p>
+      <p class="price">R$ 0,00</p>
+    </div>
+
+    <div class="plan-card destaque">
+      <h3>Profissional</h3>
+      <p>Conversões ilimitadas</p>
+      <p class="price">R$ 29,90/mês</p>
+    </div>
+
+    <div class="plan-card">
+      <h3>Empresarial</h3>
+      <p>Suporte prioritário e integrações</p>
+      <p class="price">R$ 79,90/mês</p>
+    </div>
+  </div>
+</div>
+{% endblock %}
